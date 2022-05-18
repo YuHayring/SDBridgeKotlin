@@ -100,7 +100,7 @@ dependencies {
 3) In javascript file or typescript and html file like :
 	
 ```javascript
- <div id="SDBridge"> web content </div>
+<div id="SDBridge"> web content </div>
 <script>
     setTimeout(()=>{
         console.log("Javascript: Hello World.");
