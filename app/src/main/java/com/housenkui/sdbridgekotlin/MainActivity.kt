@@ -9,9 +9,7 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Button
-import com.housenkui.studykotlin.WebViewJavascriptBridge
 import java.lang.reflect.InvocationTargetException
-import com.google.gson.internal.LinkedTreeMap
 
 class MainActivity : AppCompatActivity() , View.OnClickListener{
     private var mWebView: WebView? = null
@@ -25,7 +23,7 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
     private fun setupView(){
         val buttonSync = findViewById<Button>(R.id.buttonSync)
         val buttonAsync = findViewById<Button>(R.id.buttonAsync)
-        mWebView = findViewById<WebView>(R.id.webView)
+        mWebView = findViewById(R.id.webView)
         setAllowUniversalAccessFromFileURLs(mWebView!!)
         buttonSync.setOnClickListener(this)
         buttonAsync.setOnClickListener(this)
@@ -38,7 +36,7 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
             }
         }
         bridge?.register("DeviceLoadJavascriptSuccess",object : Handler {
-            override fun handler(map: LinkedTreeMap<*, *>?, callback: Callback) {
+            override fun handler(map: HashMap<String, Any>?, callback: Callback) {
                 println("Next line is javascript data->>>")
 //                println(map)
                 val result = HashMap<String, Any>()
@@ -50,7 +48,7 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
         // Loading html in local ，This way maybe meet cross domain. So You should not forget to set
         // /*...setAllowUniversalAccessFromFileURLs... */
         // If you loading remote web server,That can be ignored.
-        mWebView!!.loadUrl("file:///android_asset/Demo.html");
+        mWebView!!.loadUrl("file:///android_asset/Demo.html")
 
     }
 

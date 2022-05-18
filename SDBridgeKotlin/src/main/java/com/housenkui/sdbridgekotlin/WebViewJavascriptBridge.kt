@@ -1,4 +1,4 @@
-package com.housenkui.studykotlin
+package com.housenkui.sdbridgekotlin
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -6,9 +6,6 @@ import android.webkit.JavascriptInterface
 import android.webkit.WebView
 import com.google.gson.Gson
 import com.google.gson.internal.LinkedTreeMap
-import com.housenkui.sdbridgekotlin.Callback
-import com.housenkui.sdbridgekotlin.ConsolePipe
-import com.housenkui.sdbridgekotlin.Handler
 import org.json.JSONObject
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -121,8 +118,12 @@ class WebViewJavascriptBridge(_context: Context?, _webView: WebView?) {
                 println(error)
                 return
             }
-            val treeMap = message["data"] as LinkedTreeMap<*, *>?
-            handler.handler(treeMap, callback)
+            val treeMap = message["data"] as LinkedTreeMap<String, Any>
+            val response = HashMap<String, Any>()
+            for ((key, value) in treeMap) {
+                response[key] = value
+            }
+            handler.handler(response, callback)
         }
     }
     private fun dispatch(message: java.util.HashMap<String?, Any?>) {
