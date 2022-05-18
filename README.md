@@ -68,7 +68,7 @@ dependencies {
         }
     }
 ```
-2) In Java, and call a Javascript Sync/Async function:
+2) In Kotlin, and call a Javascript Sync/Async function:
 ```Kotlin
   override fun onClick(v: View?){
         when(v?.id){
@@ -154,4 +154,4 @@ dependencies {
 
 ## License
 
-SDBridgeSwift is released under the MIT license. [See LICENSE](https://github.com/SDBridge/SDBridgeSwift/blob/main/JavascriptBridgeSwift/LICENSE) for details.
+SDBridgeSwift is released under the MIT license. [See LICENSE](https://github.com/SDBridge/SDBridgeKotlin/blob/main/LICENSE) for details.
