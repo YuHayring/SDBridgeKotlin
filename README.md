@@ -3,6 +3,8 @@
 ![language](https://img.shields.io/badge/support-Javascript/Async/Await-green)
 ![language](https://img.shields.io/badge/support-Jitpack-green)
 
+[SDBridgeJava](https://github.com/SDBridge/SDBridgeJava) is [here](https://github.com/SDBridge/SDBridgeJava).
+
 Usage
 -----
 
