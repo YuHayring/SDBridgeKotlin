@@ -1,4 +1,4 @@
-package com.housenkui.studykotlin
+package com.housenkui.sdbridgekotlin
 
 import com.google.gson.internal.LinkedTreeMap
 

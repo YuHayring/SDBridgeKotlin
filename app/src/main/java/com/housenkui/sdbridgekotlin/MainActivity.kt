@@ -9,9 +9,6 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Button
-import com.housenkui.studykotlin.Callback
-import com.housenkui.studykotlin.ConsolePipe
-import com.housenkui.studykotlin.Handler
 import com.housenkui.studykotlin.WebViewJavascriptBridge
 import java.lang.reflect.InvocationTargetException
 import com.google.gson.internal.LinkedTreeMap

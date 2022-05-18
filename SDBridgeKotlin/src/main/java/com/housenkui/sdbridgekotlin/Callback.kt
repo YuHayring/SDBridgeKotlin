@@ -1,4 +1,4 @@
-package com.housenkui.studykotlin
+package com.housenkui.sdbridgekotlin
 
 interface Callback {
     fun call(map: HashMap<String, Any>?)
