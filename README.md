@@ -102,6 +102,7 @@ dependencies {
 ```javascript
 <div id="SDBridge"> web content </div>
 <script>
+    // Give webview 1.5s to load other javascript files.
     setTimeout(()=>{
         console.log("Javascript: Hello World.");
         const bridge = window.WebViewJavascriptBridge;
