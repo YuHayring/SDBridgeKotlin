@@ -5,6 +5,9 @@
 
 [SDBridgeJava](https://github.com/SDBridge/SDBridgeJava) is [here](https://github.com/SDBridge/SDBridgeJava).
 
+If your h5 partner confused about how to deal with iOS and Android.
+[This Demo maybe help](https://github.com/SDBridge/TypeScriptDemo).
+
 Usage
 -----
 
