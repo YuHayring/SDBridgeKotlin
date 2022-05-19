@@ -50,6 +50,10 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
         // If you loading remote web server,That can be ignored.
         mWebView!!.loadUrl("file:///android_asset/Demo.html")
 
+//      index.html use SDBridge.js. This js file was create by webpack.
+//      mWebView!!.loadUrl("file:///android_asset/index.html")
+
+
     }
 
     private val webClient = object : WebViewClient() {
