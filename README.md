@@ -169,7 +169,7 @@ WeChat Group:
 
 ![](Resource/SDBridgeKotlinSupport.png)
 
-- Email: 
+Email: 
 housenkui@gmail.com
 
 ## License
