@@ -158,7 +158,18 @@ dependencies {
 
 </script>
 ```
-# Contact
+# Global support for free
+WhatsApp:
+[SDBridgeKotlin Support](https://chat.whatsapp.com/CAh3TGcz6VdCUvnTAYURte)
+
+Telegram:
+[SDBridgeKotlin Support](https://t.me/+aB5MmX8f6gw0MmRl)
+
+WhatsApp:
+[SDBridgeKotlin Support](https://chat.whatsapp.com/CAh3TGcz6VdCUvnTAYURte)
+
+WeChat Group:
+![](Resource/SDBridgeKotlin Support.png)
 
 - Email: housenkui@gmail.com
 
