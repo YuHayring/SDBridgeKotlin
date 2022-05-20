@@ -2,6 +2,8 @@
 ![language](https://img.shields.io/badge/Language-Kotlin-green)
 ![language](https://img.shields.io/badge/support-Javascript/Async/Await-green)
 ![language](https://img.shields.io/badge/support-Jitpack-green)
+![language](https://img.shields.io/badge/support-bilibili_video-green)
+
 
 [SDBridgeJava](https://github.com/SDBridge/SDBridgeJava) is [here](https://github.com/SDBridge/SDBridgeJava).
 
