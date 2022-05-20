@@ -166,9 +166,11 @@ Telegram:
 [SDBridgeKotlin Support](https://t.me/+aB5MmX8f6gw0MmRl)
 
 WeChat Group:
+
 ![](Resource/SDBridgeKotlinSupport.png)
 
-- Email: housenkui@gmail.com
+- Email: 
+housenkui@gmail.com
 
 ## License
 
