@@ -169,7 +169,7 @@ WhatsApp:
 [SDBridgeKotlin Support](https://chat.whatsapp.com/CAh3TGcz6VdCUvnTAYURte)
 
 WeChat Group:
-![](Resource/SDBridgeKotlin Support.png)
+![](Resource/SDBridgeKotlinSupport.png)
 
 - Email: housenkui@gmail.com
 
