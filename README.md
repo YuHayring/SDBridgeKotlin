@@ -24,7 +24,7 @@ repositories {
     maven { url 'https://jitpack.io' }
 }
 dependencies {
-    implementation 'com.github.SDBridge:SDBridgeKotlin:1.0.0'
+    implementation 'com.github.SDBridge:SDBridgeKotlin:1.0.1'
 }
 ```
 
@@ -171,6 +171,12 @@ WeChat Group:
 
 Email: 
 housenkui@gmail.com
+
+# History version update ?
+[v1.0.1]()
+
+1.Kotlin can get console.log Multi parameter.
+
 
 ## License
 
