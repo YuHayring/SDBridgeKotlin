@@ -173,9 +173,9 @@ Email:
 housenkui@gmail.com
 
 # History version update ?
-[v1.0.1](https://github.com/SDBridge/SDBridgeKotlin/blob/main/SDBridgeKotlin/src/main/assets/hookConsole.js#L33)
+[v1.0.1](https://github.com/SDBridge/SDBridgeKotlin)
 
-1.Kotlin can get console.log Multi parameter.
+1.Kotlin can get console.log [Multi parameter](https://github.com/SDBridge/SDBridgeKotlin/blob/main/SDBridgeKotlin/src/main/assets/hookConsole.js#L33).
 
 ## License
 
