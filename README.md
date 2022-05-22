@@ -24,7 +24,7 @@ repositories {
     maven { url 'https://jitpack.io' }
 }
 dependencies {
-    implementation 'com.github.SDBridge:SDBridgeKotlin:1.0.2'
+    implementation 'com.github.SDBridge:SDBridgeKotlin:1.0.3'
 }
 ```
 
@@ -179,7 +179,11 @@ housenkui@gmail.com
 
 [v1.0.2](https://github.com/SDBridge/SDBridgeKotlin)
 
-2.Optimized coding.
+1.Optimized coding.
+
+[v1.0.3](https://github.com/SDBridge/SDBridgeKotlin)
+
+1.Optimized coding.
 
 ## License
 
