@@ -24,7 +24,7 @@ repositories {
     maven { url 'https://jitpack.io' }
 }
 dependencies {
-    implementation 'com.github.SDBridge:SDBridgeKotlin:1.0.1'
+    implementation 'com.github.SDBridge:SDBridgeKotlin:1.0.2'
 }
 ```
 
@@ -176,6 +176,10 @@ housenkui@gmail.com
 [v1.0.1](https://github.com/SDBridge/SDBridgeKotlin)
 
 1.Kotlin can get console.log [Multi parameter](https://github.com/SDBridge/SDBridgeKotlin/blob/main/SDBridgeKotlin/src/main/assets/hookConsole.js#L33).
+
+[v1.0.2](https://github.com/SDBridge/SDBridgeKotlin)
+
+2.Optimized coding.
 
 ## License
 
