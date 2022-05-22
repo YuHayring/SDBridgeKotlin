@@ -31,14 +31,14 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
 
         bridge?.consolePipe = object : ConsolePipe {
             override fun post(string : String){
-                println("33333")
+                println("Next line is javascript console.log->>>")
                 println(string)
             }
         }
         bridge?.register("DeviceLoadJavascriptSuccess",object : Handler {
             override fun handler(map: HashMap<String, Any>?, callback: Callback) {
                 println("Next line is javascript data->>>")
-//                println(map)
+                println(map)
                 val result = HashMap<String, Any>()
                 result["result"] = "Android"
                 callback.call(result)
