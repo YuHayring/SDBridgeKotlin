@@ -12,6 +12,8 @@ If your h5 partner confused about how to deal with iOS and Android.
 
 [bilibili video introduction is here](https://search.bilibili.com/all?vt=53806197&keyword=SDBridgeKotlin&from_source=webtop_search&spm_id_from=333.788).
 
+[YouTube video is here](https://www.youtube.com/results?search_query=SDBridgeKotlin).
+
 Usage
 -----
 
