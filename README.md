@@ -167,9 +167,9 @@ WhatsApp:
 Telegram:
 [SDBridgeKotlin Support](https://t.me/+aB5MmX8f6gw0MmRl)
 
-WeChat Group:
+WeChat :
 
-![](Resource/SDBridgeKotlinSupport.png)
+![](Resource/wechat.png)
 
 Email: 
 housenkui@gmail.com
