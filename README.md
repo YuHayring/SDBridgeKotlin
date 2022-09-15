@@ -21,7 +21,7 @@ WebViewJavascriptBridge is not defined 的处理方案.
 
 [YouTube video is here](https://www.youtube.com/channel/UCejg0KqpAvoEem4v5y1QbpA/videos).
 
-Usage
+Usage 
 -----
 
 ## JitPack.io
