@@ -167,20 +167,6 @@ dependencies {
 
 </script>
 ```
-# Global support for free
-WhatsApp:
-[SDBridgeKotlin Support](https://chat.whatsapp.com/CAh3TGcz6VdCUvnTAYURte)
-
-Telegram:
-[SDBridgeKotlin Support](https://t.me/+aB5MmX8f6gw0MmRl)
-
-WeChat :
-
-![](Resource/wechat.png)
-
-Email: 
-housenkui@gmail.com
-
 # History version update ?
 [v1.0.1](https://github.com/SDBridge/SDBridgeKotlin)
 
