@@ -47,6 +47,14 @@
                     }, 1000);
                 })
             }
+            bridge.registerHandler('TestJavascriptCallNative', function(data) {
+                setTimeout(() => {
+                            bridge.callHandler('ObjTest', {name: 'Hayring', age: 23}, function(response) {
+                            document.getElementById("SDBridge").innerText = "Age added, current age = " + response.age;
+
+                        });
+                    }, 1000);
+           });
         },1500);
 
     </script>

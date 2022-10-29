@@ -23,10 +23,13 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
     private fun setupView(){
         val buttonSync = findViewById<Button>(R.id.buttonSync)
         val buttonAsync = findViewById<Button>(R.id.buttonAsync)
+        val objTest = findViewById<Button>(R.id.obj_test)
         mWebView = findViewById(R.id.webView)
+        WebView.setWebContentsDebuggingEnabled(true)
         setAllowUniversalAccessFromFileURLs(mWebView!!)
         buttonSync.setOnClickListener(this)
         buttonAsync.setOnClickListener(this)
+        objTest.setOnClickListener(this)
         bridge = WebViewJavascriptBridge(_context = this,_webView = mWebView )
 
         bridge?.consolePipe = object : ConsolePipe {
@@ -35,14 +38,21 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
                 println(string)
             }
         }
-        bridge?.register("DeviceLoadJavascriptSuccess",object : Handler {
-            override fun handler(map: HashMap<String, Any>?, callback: Callback) {
-                println("Next line is javascript data->>>")
-                println(map)
-                val result = HashMap<String, Any>()
-                result["result"] = "Android"
-                callback.call(result)
+        bridge?.register("DeviceLoadJavascriptSuccess", object: Handler<Map<String, String>, Any> {
+            override fun handle(p: Map<String, String>): Any {
+                println("DeviceLoadJavascriptSuccessNext line is javascript data->>>")
+                println(p)
+                return object: Any() {
+                    val result = "Android"
+                }
             }
+
+        })
+        bridge?.register("ObjTest", object: Handler<Person, Person> {
+            override fun handle(p: Person): Person {
+                return Person(p.name, p.age + 1)
+            }
+
         })
         mWebView!!.webViewClient = webClient
         // Loading html in local ，This way maybe meet cross domain. So You should not forget to set
@@ -72,27 +82,36 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
     override fun onClick(v: View?){
         when(v?.id){
             R.id.buttonSync -> {
-                val data = java.util.HashMap<String, Any>()
-                data["AndroidKey00"] = "AndroidValue00"
+                val data = Person(
+                    "Hayring",
+                    23
+                )
                 //call js Sync function
-                bridge?.call("GetToken", data, object : Callback {
-                    override fun call(map: HashMap<String, Any>?){
+                bridge?.call("GetToken", data, object : Callback<Map<String, Any?>> {
+                    override fun call(p: Map<String, Any?>) {
                         println("Next line is javascript data->>>")
-                        println(map)
+                        println(p)
                     }
+
                 })
             }
             R.id.buttonAsync ->{
-                val data = java.util.HashMap<String, Any>()
-                data["AndroidKey01"] = "AndroidValue01"
+                val data = Person(
+                    "Hayring",
+                    23
+                )
                 //call js Async function
-                bridge?.call("AsyncCall", data, object : Callback {
-                    override fun call(map: HashMap<String, Any>?){
+                bridge?.call("AsyncCall", data, object : Callback<Map<String, Any?>> {
+                    override fun call(p: Map<String, Any?>) {
                         println("Next line is javascript data->>>")
-                        println(map)
+                        println(p)
                     }
+
                 })
             }
+            R.id.obj_test -> {
+                bridge?.call("TestJavascriptCallNative", null, null)
+        }
         }
     }
 

@@ -2,4 +2,5 @@
     <string name="app_name">SDBridgeKotlin</string>
     <string name="buttonSync">CallSync</string>
     <string name="buttonAsync">CallAsync</string>
+    <string name="obj_test">ObjTest</string>
 </resources>
