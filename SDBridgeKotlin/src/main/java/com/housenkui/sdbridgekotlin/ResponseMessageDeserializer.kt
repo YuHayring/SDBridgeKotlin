@@ -6,10 +6,17 @@ import java.lang.reflect.Type
 /**
  * @date 2022/10/29
  * @author Hayring
- * @description
+ * @description ResponseMessage custom gson Serializer
  */
 class ResponseMessageDeserializer(
+    /**
+     * callbacks from WebViewJavascriptBridge
+     */
     val responseCallbacks: Map<String, Callback<*>>,
+
+    /**
+     * handlers from WebViewJavascriptBridge
+     */
     val messageHandlers: Map<String, Handler<*,*>>
 ): JsonDeserializer<ResponseMessage>, JsonSerializer<ResponseMessage> {
 
@@ -46,7 +53,7 @@ class ResponseMessageDeserializer(
 
 
     /**
-     * native callback after js handle
+     * message from native callback after js handle
      */
     override fun deserialize(
         json: JsonElement,
@@ -86,6 +93,7 @@ class ResponseMessageDeserializer(
         typeOfSrc: Type?,
         context: JsonSerializationContext?
     ) = JsonObject().also { json ->
+        //skip any null field
         src?.responseId?.let {
             json.add(RESPONSE_ID, context?.serialize(it))
         }

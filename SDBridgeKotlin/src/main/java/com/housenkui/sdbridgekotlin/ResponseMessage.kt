@@ -3,7 +3,7 @@ package com.housenkui.sdbridgekotlin
 /**
  * @date 2022/10/15
  * @author Hayring
- * @description response message before serialize by gson
+ * @description response message or js-call-native message after deserialize by gson
  */
 data class ResponseMessage(
     val responseId: String?,

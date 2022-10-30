@@ -41,6 +41,7 @@ object CallMessageSerializer: JsonSerializer<CallMessage> {
     ): JsonElement {
         val json = JsonObject()
         json.add(HANDLER_NAME, context.serialize(src.handlerName))
+        //if field is null, don't serialize it'
         src.data?.let { json.add(DATA, context.serialize(it)) }
         src.callbackId?.let { json.add(CALLBACK_ID, context.serialize(it)) }
         return json
