@@ -20,14 +20,18 @@ interface Handler<P,R> {
      * get the type of the handler parameter
      */
     val parameterType: Type
-        get() =  (javaClass.genericInterfaces.filter { it == Handler::class.java }[0] as ParameterizedType)
+        get() = (javaClass.genericInterfaces[
+                javaClass.interfaces.indexOf(Handler::class.java)
+        ] as ParameterizedType)
             .actualTypeArguments[0]
 
     /**
      * get the type of the handler returning
      */
     val returnType: Type
-        get() =  (javaClass.genericInterfaces.filter { it == Handler::class.java }[0] as ParameterizedType)
+        get() =  (javaClass.genericInterfaces[
+                javaClass.interfaces.indexOf(Handler::class.java)
+        ] as ParameterizedType)
             .actualTypeArguments[1]
 
 }

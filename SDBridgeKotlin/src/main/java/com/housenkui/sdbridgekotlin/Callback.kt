@@ -18,7 +18,9 @@ interface Callback<P> {
      * get the type of the callback parameter
      */
     val parameterType: Type
-       get() = (javaClass.genericInterfaces.filter { it == Callback::class.java }[0] as ParameterizedType)
-            .actualTypeArguments[0]
+       get() = (javaClass.genericInterfaces[
+               javaClass.interfaces.indexOf(Callback::class.java)
+       ] as ParameterizedType)
+           .actualTypeArguments[0]
 
 }
