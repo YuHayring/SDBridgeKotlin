@@ -130,14 +130,18 @@ class WebViewJavascriptBridge(_context: Context?, _webView: WebView?) {
                 return
             }
             val responseData = handler.invoke(message.data)
-            message.callbackId?.let {
-                dispatch(ResponseMessage(
-                    it,
-                    responseData,
-                    null,
-                    null,
-                    null,
-                ))
+            if (responseData !is Unit) {
+                message.callbackId?.let {
+                    dispatch(
+                        ResponseMessage(
+                            it,
+                            responseData,
+                            null,
+                            null,
+                            null,
+                        )
+                    )
+                }
             }
         }
     }
