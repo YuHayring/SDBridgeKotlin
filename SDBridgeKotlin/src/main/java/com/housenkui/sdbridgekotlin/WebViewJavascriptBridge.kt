@@ -83,6 +83,25 @@ class WebViewJavascriptBridge(_context: Context?, _webView: WebView?) {
     fun remove(handlerName: String?) {
         messageHandlers.remove(handlerName!!)
     }
+
+    fun call(
+        handlerName: String,
+        callback: Callback<*>? = null
+    ) {
+
+        val message = CallMessage(
+            handlerName,
+            null,
+            callback?.let {
+                uniqueId += 1
+                val callbackId = "native_cb_$uniqueId"
+                responseCallbacks[callbackId] = it
+                callbackId
+            }
+        )
+        dispatch(message)
+    }
+
     fun <P> call(
         handlerName: String,
         data: P? = null,
