@@ -86,7 +86,8 @@ class WebViewJavascriptBridge(_context: Context?, _webView: WebView?) {
 
     fun call(
         handlerName: String,
-        callback: Callback<*>? = null
+        callback: Callback<*>? = null,
+        sync: Boolean = false
     ) {
 
         val message = CallMessage(
@@ -99,13 +100,14 @@ class WebViewJavascriptBridge(_context: Context?, _webView: WebView?) {
                 callbackId
             }
         )
-        dispatch(message)
+        dispatch(message, sync)
     }
 
     fun <P> call(
         handlerName: String,
         data: P? = null,
-        callback: Callback<*>? = null
+        callback: Callback<*>? = null,
+        sync: Boolean = false
     ) {
 
         val message = CallMessage(
@@ -118,7 +120,7 @@ class WebViewJavascriptBridge(_context: Context?, _webView: WebView?) {
                 callbackId
             }
         )
-        dispatch(message)
+        dispatch(message, sync)
     }
 
 
@@ -135,7 +137,7 @@ class WebViewJavascriptBridge(_context: Context?, _webView: WebView?) {
         val responseId = message.responseId
         if (responseId != null) {
             val callback: Callback<*> = responseCallbacks[responseId]!!
-            callback.invoke(message.responseData)
+            callback.invoke(message.responseData?:Unit)
             responseCallbacks.remove(responseId)
         } else {
             val handlerName = message.handlerName
@@ -148,7 +150,7 @@ class WebViewJavascriptBridge(_context: Context?, _webView: WebView?) {
                 println(error)
                 return
             }
-            val responseData = handler.invoke(message.data)
+            val responseData = handler.invoke(message.data?:Unit)
             if (responseData !is Unit) {
                 message.callbackId?.let {
                     dispatch(
@@ -164,8 +166,8 @@ class WebViewJavascriptBridge(_context: Context?, _webView: WebView?) {
             }
         }
     }
-    
-    private fun dispatch(message: Any) {
+
+    private fun dispatch(message: Any, sync: Boolean = false) {
         val messageString = StringBuilder()
         val json = gson.toJson(message)
         json.forEach {
@@ -174,7 +176,12 @@ class WebViewJavascriptBridge(_context: Context?, _webView: WebView?) {
         }
         messageString.insert(0, "WebViewJavascriptBridge.handleMessageFromNative('")
         messageString.append("');")
-        webView!!.post { webView!!.evaluateJavascript(messageString.toString(), null) }
+        val runnable = Runnable { webView!!.evaluateJavascript(messageString.toString(), null) }
+        if (sync) {
+            runnable.run()
+        } else {
+            webView!!.post(runnable)
+        }
     }
 
     private fun getFromAssets(context: Context, fileName: String): String? {
