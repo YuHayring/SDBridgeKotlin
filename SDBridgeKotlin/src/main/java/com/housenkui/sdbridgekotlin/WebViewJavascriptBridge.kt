@@ -2,15 +2,14 @@ package com.housenkui.sdbridgekotlin
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.telecom.Call
 import android.webkit.JavascriptInterface
 import android.webkit.WebView
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.google.gson.internal.LinkedTreeMap
-import org.json.JSONObject
+import org.w3c.dom.Node
 import java.io.BufferedReader
 import java.io.InputStreamReader
+import java.lang.reflect.Type
 
 class WebViewJavascriptBridge(_context: Context?, _webView: WebView?) {
     private var context: Context? = _context
@@ -23,14 +22,31 @@ class WebViewJavascriptBridge(_context: Context?, _webView: WebView?) {
 
     val deserializer = ResponseMessageDeserializer(responseCallbacks, messageHandlers)
 
+    private val gsonBuilder = GsonBuilder()
 
     /**
      * google object serializer
      */
-    private var gson: Gson = GsonBuilder()
+    private var gson: Gson = gsonBuilder
         .registerTypeAdapter(CallMessage::class.java, CallMessageSerializer)
         .registerTypeAdapter(ResponseMessage::class.java, deserializer)
         .create()
+
+
+    /**
+     * register custom adapter at one time
+     */
+    fun registerTypeAdapter(list: Collection<Pair<Type?, Any?>>) {
+        list.forEach {
+            gsonBuilder.registerTypeAdapter(it.first, it.second)
+        }
+
+        gson = gsonBuilder
+                //make sure it will not be replaced
+            .registerTypeAdapter(CallMessage::class.java, CallMessageSerializer)
+            .registerTypeAdapter(ResponseMessage::class.java, deserializer)
+            .create()
+    }
 
     
     companion object {
