@@ -2,6 +2,7 @@ package com.housenkui.sdbridgekotlin
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.util.Log
 import android.webkit.JavascriptInterface
 import android.webkit.WebView
 import com.google.gson.Gson
@@ -192,6 +193,9 @@ class WebViewJavascriptBridge(_context: Context?, _webView: WebView?) {
         }
         messageString.insert(0, "WebViewJavascriptBridge.handleMessageFromNative('")
         messageString.append("');")
+//        if (BuildConfig.DEBUG) {
+//            Log.v("WVJB.dispatch", messageString.toString())
+//        }
         val runnable = Runnable { webView!!.evaluateJavascript(messageString.toString(), null) }
         if (sync) {
             runnable.run()
